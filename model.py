@@ -203,8 +203,12 @@ def r_squared(y_true, y_pred):
     ss_tot = np.sum((y_true - np.mean(y_true)) ** 2)
     return 1 - ss_res / ss_tot if ss_tot != 0.0 else np.nan
 
-# Step 21 - evaluate_regression (not yet solved)
-# TODO: implement
+# Step 21 - evaluate_regression
+def evaluate_regression(y_true, y_pred):
+    mae = mean_absolute_error(y_true, y_pred)
+    rmse = root_mean_squared_error(y_true, y_pred)
+    r2 = r_squared(y_true, y_pred)
+    return {'mae': mae, 'rmse': rmse, 'r2': r2}
 
 # Step 22 - learning_curve_data (not yet solved)
 # TODO: implement

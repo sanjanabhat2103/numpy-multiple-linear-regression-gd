@@ -218,8 +218,10 @@ def learning_curve_data(train_losses, val_losses):
     val_list = [float(x) for x in val_losses]
     return epochs, train_list, val_list
 
-# Step 23 - weights_l2_distance (not yet solved)
-# TODO: implement
+# Step 23 - weights_l2_distance
+def weights_l2_distance(w_gd, w_closed):
+    v = w_gd - w_closed 
+    return np.linalg.norm(v)
 
 # Step 24 - create_lr_model (not yet solved)
 # TODO: implement

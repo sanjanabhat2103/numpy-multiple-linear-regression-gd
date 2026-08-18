@@ -210,8 +210,13 @@ def evaluate_regression(y_true, y_pred):
     r2 = r_squared(y_true, y_pred)
     return {'mae': mae, 'rmse': rmse, 'r2': r2}
 
-# Step 22 - learning_curve_data (not yet solved)
-# TODO: implement
+# Step 22 - learning_curve_data
+def learning_curve_data(train_losses, val_losses):
+    n = len(train_losses)
+    epochs = list(range(1, n + 1))
+    train_list = [float(x) for x in train_losses]
+    val_list = [float(x) for x in val_losses]
+    return epochs, train_list, val_list
 
 # Step 23 - weights_l2_distance (not yet solved)
 # TODO: implement

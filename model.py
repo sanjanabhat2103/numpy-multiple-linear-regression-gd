@@ -92,7 +92,7 @@ def normal_equation(X, y):
 
 # Step 11 - initialize_weights
 def initialize_weights(n_features, seed=None):
-    rng = np.random.default_rng(seed)
+    rng = np.random.RandomState(seed)
     return rng.normal(loc = 0.0, scale = 0.01, size = n_features)
 
 # Step 12 - gd_step
@@ -143,8 +143,18 @@ def update_early_stop_state(val_loss, best_val_loss, wait, weights, best_weights
     stop = wait >= patience
     return best_val_loss, wait, best_weights, stop
 
-# Step 15 - init_training_state (not yet solved)
-# TODO: implement
+# Step 15 - init_training_state
+def init_training_state(n_features, seed=None):
+    weights = initialize_weights(n_features = n_features, seed = seed)
+    return {
+        "weights": weights,
+        "best_weights": weights.copy(),
+        "best_val_loss": np.inf,
+        "wait": 0,
+        "stopped": False,
+        "train_losses": [],
+        "val_losses": [],
+    }
 
 # Step 16 - run_one_epoch (not yet solved)
 # TODO: implement
